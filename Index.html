@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KaamSetu | काम ढूँढें और काम करवाएँ</title>
+
+  <meta name="description"
+        content="KaamSetu पर काम ढूँढें, worker खोजें और अपने आसपास के skilled professionals से जुड़ें।">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+  <button class="login-btn" onclick="openAuth()">
+  Login / Register
+  </button>
+  <div class="logo">
+    <span>🔗</span> KaamSetu
+  </div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#categories">काम खोजें</a>
+    <a href="#post-job">काम पोस्ट करें</a>
+    <a href="#about">About</a>
+  </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <span class="badge">🇮🇳 काम और रोजगार को जोड़ने वाला प्लेटफॉर्म</span>
+
+    <h1>
+      काम चाहिए या<br>
+      <span>काम करवाना है?</span>
+    </h1>
+
+    <p>
+      KaamSetu पर अपने आसपास के मजदूर, मिस्त्री,
+      electrician, plumber, engineer और अन्य professionals से जुड़ें।
+    </p>
+
+    <div class="hero-buttons">
+
+      <button class="primary-btn" onclick="openWorkerForm()">
+        👷 मैं काम ढूँढ रहा हूँ
+      </button>
+
+      <button class="secondary-btn" onclick="scrollToJob()">
+        📋 मुझे काम करवाना है
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="जैसे: मिस्त्री, electrician, plumber..."
+    >
+
+    <select id="location">
+      <option value="">📍 अपना शहर चुनें</option>
+      <option>वाराणसी</option>
+      <option>लखनऊ</option>
+      <option>प्रयागराज</option>
+      <option>गोरखपुर</option>
+      <option>दिल्ली</option>
+      <option>अन्य शहर</option>
+    </select>
+
+    <button onclick="searchWorkers()">
+      🔍 खोजें
+    </button>
+
+  </div>
+
+  <p id="searchResult"></p>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section" id="categories">
+
+  <div class="section-title">
+    <span>Popular Services</span>
+    <h2>आपको किस काम के लिए व्यक्ति चाहिए?</h2>
+  </div>
+
+  <div class="categories">
+
+    <div class="category" onclick="selectCategory('मजदूर')">
+      <div class="icon">👷</div>
+      <h3>मजदूर</h3>
+      <p>Labour</p>
+    </div>
+
+    <div class="category" onclick="selectCategory('मिस्त्री')">
+      <div class="icon">🧱</div>
+      <h3>मिस्त्री</h3>
+      <p>Mason</p>
+    </div>
+
+    <div class="category" onclick="selectCategory('Electrician')">
+      <div class="icon">⚡</div>
+      <h3>Electrician</h3>
+      <p>Electrical Work</p>
+    </div>
+
+    <div class="category" onclick="selectCategory('Plumber')">
+      <div class="icon">🔧</div>
+      <h3>Plumber</h3>
+      <p>Plumbing</p>
+    </div>
+
+    <div class="category" onclick="selectCategory('Painter')">
+      <div class="icon">🎨</div>
+      <h3>Painter</h3>
+      <p>Painting</p>
+    </div>
+
+    <div class="category" onclick="selectCategory('Engineer')">
+      <div class="icon">👨‍💻</div>
+      <h3>Engineer</h3>
+      <p>Technical Work</p>
+    </div>
+
+    <div class="category" onclick="selectCategory('Driver')">
+      <div class="icon">🚚</div>
+      <h3>Driver</h3>
+      <p>Driving</p>
+    </div>
+
+    <div class="category" onclick="selectCategory('अन्य')">
+      <div class="icon">➕</div>
+      <h3>अन्य काम</h3>
+      <p>More Services</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-section">
+
+  <div class="section-title">
+    <span>How It Works</span>
+    <h2>KaamSetu कैसे काम करता है?</h2>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div>1</div>
+      <h3>काम पोस्ट करें</h3>
+      <p>आपको किस काम के लिए व्यक्ति चाहिए, उसकी जानकारी दें।</p>
+    </div>
+
+    <div class="step">
+      <div>2</div>
+      <h3>Worker खोजें</h3>
+      <p>अपने आसपास उपलब्ध workers की profiles देखें।</p>
+    </div>
+
+    <div class="step">
+      <div>3</div>
+      <h3>काम शुरू करें</h3>
+      <p>Worker से संपर्क करके काम की details तय करें।</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= POST JOB ================= -->
+
+<section class="job-section" id="post-job">
+
+  <div class="job-card">
+
+    <div class="section-title">
+      <span>Post a Job</span>
+      <h2>अपना काम पोस्ट करें</h2>
+    </div>
+
+    <form id="jobForm">
+
+      <label>काम का नाम</label>
+
+      <input
+        type="text"
+        id="jobName"
+        placeholder="जैसे: घर में painting करवानी है"
+        required
+      >
+
+      <label>काम की Category</label>
+
+      <select id="jobCategory" required>
+
+        <option value="">Category चुनें</option>
+        <option>मजदूर</option>
+        <option>मिस्त्री</option>
+        <option>Electrician</option>
+        <option>Plumber</option>
+        <option>Painter</option>
+        <option>Engineer</option>
+        <option>Driver</option>
+        <option>अन्य</option>
+
+      </select>
+
+      <label>स्थान</label>
+
+      <input
+        type="text"
+        id="jobLocation"
+        placeholder="शहर / क्षेत्र"
+        required
+      >
+
+      <label>काम का Budget</label>
+
+      <input
+        type="text"
+        id="budget"
+        placeholder="जैसे ₹800/day"
+      >
+
+      <label>काम की जानकारी</label>
+
+      <textarea
+        id="jobDescription"
+        rows="4"
+        placeholder="काम के बारे में थोड़ी जानकारी..."
+      ></textarea>
+
+      <button class="submit-btn" type="submit">
+        🚀 काम पोस्ट करें
+      </button>
+
+    </form>
+
+    <div id="jobMessage"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WORKER CTA ================= -->
+
+<section class="worker-section">
+
+  <div>
+
+    <span>👷 Workers के लिए</span>
+
+    <h2>
+      आपके पास हुनर है?
+      <br>
+      KaamSetu से जुड़िए।
+    </h2>
+
+    <p>
+      अपनी skill और location के साथ profile बनाएं
+      और नए काम के अवसरों से जुड़ें।
+    </p>
+
+    <button onclick="openWorkerForm()">
+      अपना Worker Profile बनाएं →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about" id="about">
+
+  <h2>KaamSetu का उद्देश्य</h2>
+
+  <p>
+    हमारा उद्देश्य काम करवाने वाले लोगों और skilled workers
+    को एक आसान digital platform पर जोड़ना है।
+  </p>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="logo">
+    🔗 KaamSetu
+  </div>
+
+  <p>काम और हुनर को जोड़ने का प्रयास 🇮🇳</p>
+
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <p class="copyright">
+    © 2026 KaamSetu. All Rights Reserved.
+  </p>
+
+</footer>
+
+
+<!-- ================= WORKER MODAL ================= -->
+
+<div class="modal" id="workerModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeWorkerForm()">×</button>
+
+    <h2>👷 Worker Registration</h2>
+
+    <p>अपनी जानकारी देकर KaamSetu से जुड़ें।</p>
+
+    <input
+      id="workerName"
+      placeholder="आपका नाम"
+    >
+
+    <input
+      id="workerSkill"
+      placeholder="आपका काम / Skill"
+    >
+
+    <input
+      id="workerCity"
+      placeholder="आपका शहर"
+    >
+
+    <input
+      id="workerPhone"
+      type="tel"
+      placeholder="Mobile Number"
+    >
+
+    <button onclick="registerWorker()">
+      Register करें
+    </button>
+
+    <p id="workerMessage"></p>
+
+  </div>
+
+</div>
+
+<!-- AUTH MODAL -->
+
+<div class="modal" id="authModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeAuth()">×</button>
+
+    <h2 id="authTitle">🔐 Login</h2>
+
+    <p id="authSubtitle">
+      अपने account में login करें।
+    </p>
+
+    <div id="registerFields" style="display:none;">
+
+      <input
+        id="authName"
+        type="text"
+        placeholder="पूरा नाम"
+      >
+
+      <select id="authRole">
+        <option value="customer">मुझे काम करवाना है</option>
+        <option value="worker">मैं काम करना चाहता हूँ</option>
+      </select>
+
+    </div>
+
+    <input
+      id="authEmail"
+      type="email"
+      placeholder="Email"
+    >
+
+    <input
+      id="authPassword"
+      type="password"
+      placeholder="Password"
+    >
+
+    <button onclick="submitAuth()" id="authSubmit">
+      Login
+    </button>
+
+    <p id="authMessage"></p>
+
+    <div class="auth-switch">
+      <span id="switchText">
+        Account नहीं है?
+      </span>
+
+      <button
+        type="button"
+        onclick="toggleAuthMode()"
+        id="switchButton"
+      >
+        Register करें
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- USER STATUS -->
+
+<div id="userPanel" class="user-panel" style="display:none;">
+
+  <span id="userInfo"></span>
+
+  <button onclick="logoutUser()">
+    Logout
+  </button>
+
+</div>
+
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
